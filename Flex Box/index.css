@@ -1,0 +1,21 @@
+* {
+     margin: 0;
+     padding: 0;
+}
+
+#parent {
+     width: 60%;
+     margin: 20px auto;
+     height: 120px;
+     display: flex;
+     border: 1px solid red;
+     font-size: 23px;
+
+}
+
+.child {
+     border: 1px solid red;
+     height: 80%;
+     margin: 10px 0px 10px 80px;
+     width: 100px;
+}

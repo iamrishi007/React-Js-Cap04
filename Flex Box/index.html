@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Flex-Box</title>
+     <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+     <div id="root">
+
+
+
+
+     </div>
+     <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</body>
+
+</html>
+<script type="text/babel">
+
+     let selRoot = document.getElementById('root')
+
+     let rootElement = ReactDOM.createRoot(selRoot)
+
+     let flexBox = React.createElement('div', { id: "parent", style: { backgroundColor: "#FFE4C4" } }, "Parent", [
+          React.createElement('div', { class: "child ", style: { backgroundColor: "#FF0000" } }, "1"),
+          React.createElement('div', { class: "child ", style: { backgroundColor: "#FFFF00" } }, "2"),
+          React.createElement('div', { class: "child ", style: { backgroundColor: "#008000" } }, "3"),
+          React.createElement('div', { class: "child ", style: { backgroundColor: "#800080" } }, "4")
+     ])
+
+     rootElement.render(flexBox)
+</script>
