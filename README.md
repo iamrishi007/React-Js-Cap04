@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+# React-Js-Cap04
+
+>>>>>>> 6e4108dff090720600d5bc29a55829b5946bc827
 1 - What is React?
      React is a JavaScript library that helps developers to build user interfaces – the things we interact with on websites. 
 
@@ -55,4 +60,8 @@
 10 - What is the meaning of render and root?
  
      Render - It means showing your React code on the screen, making it visible.
+<<<<<<< HEAD
      Root - It's the main place where your React app starts and gets displayed on         webpage.
+=======
+     Root - It's the main place where your React app starts and gets displayed on         webpage.
+>>>>>>> 6e4108dff090720600d5bc29a55829b5946bc827
