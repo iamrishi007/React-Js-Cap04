@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <title>React Template</title>
+</head>
+
+<body>
+     <div id="root">
+          Hello From DOM
+     </div>
+</body>
+<script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+<script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+<script type="text/babel">
+
+     // Your task starts here
+
+     let root = document.getElementById('root')
+     let rooElement = ReactDOM.createRoot(root)
+
+
+     let App = () => {
+
+
+          function JSXShowcase({ isLoggedIn }) {
+               return (
+                    <div>
+                         <p>Its React Componant</p>
+                         {isLoggedIn == "true" ? (
+                              <h2>You Are Log In</h2>
+                         ) : (
+                              <h2>You Are Log Out</h2>
+                         )}
+                    </div>
+               )
+          }
+          return (
+               <>
+                    <h2>Hello from React</h2>
+                    <JSXShowcase isLoggedIn="true" />
+               </>)
+     }
+
+     rooElement.render(<App />)
+
+</script>
+
+
+</html>
