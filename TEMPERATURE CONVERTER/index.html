@@ -2,106 +2,88 @@
 <html lang="en">
 
 <head>
-     <meta charset="UTF-8" />
-     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-     <title>Boilerplate Code</title>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Temperature Converter</title>
+     <style>
+          #root {
+               border: 1px solid red;
+               width: 40%;
+               margin: 20px auto;
+               text-align: center;
+               padding: 10px;
+               font-weight: 400;
+               background-color: lightblue;
+          }
+
+          h3 {
+               color: gold;
+          }
+     </style>
 </head>
 
 <body>
-
      <div id="root">
 
      </div>
+     <script src="https://unpkg.com/react@18.2.0/umd/react.development.js"></script>
+     <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </body>
-<script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
-<script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
-<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
+</html>
 
 <script type="text/babel">
 
-     const root = document.getElementById("root")
-     const rootElement = ReactDOM.createRoot(root)
+
+
+
+     let root = document.getElementById('root')
+     let rootElelment = ReactDOM.createRoot(root)
 
      let App = () => {
 
-          const CelsiusData = React.useState()
-          const [celsius, setCelsius] = CelsiusData
+          let userCelcius = React.useState("")
+          const [celcius, setCelcius] = userCelcius
 
-          function Inputvalue() {
+          let userFah = React.useState("")
+          const [fahrenheit, setFahrenheit] = userFah
 
+          let CelsiusFunction = (event) => {
+
+               let celValue = event.target.value;
+               let fahValue = (celValue * 9 / 5) + 32
+
+               setCelcius(celValue);
+               setFahrenheit(fahValue);
+          }
+
+          let FahrenheitFunction = (event) => {
+
+               let fahValue = event.target.value;
+               let celValue = (fahValue - 32) * 5 / 9
+
+               setFahrenheit(fahValue)
+               setCelcius(celValue)
           }
 
           return (
-
                <>
-                    {/* °C = (°F − 32) ÷ (9/5) */}
-                    <form>
-                         <label>Fahrenheit</label>
-
-                         <input type="number" id="inp" />
-                         <button onClick={console.log(document.getElementById("inp").value)}
-                         >Add</button>
-                    </form>
+                    <label>
+                         Celsius  :
+                    </label>
+                    <input type="number" value={celcius} onChange={CelsiusFunction} />
+                    <h3>{celcius} Celsius is {fahrenheit} Fahrenheit</h3>
+                    <br />
+                    <label>
+                         Fahrenheit :
+                    </label>
+                    <input type="number" value={fahrenheit} onChange={FahrenheitFunction} />
+                    <h3>{fahrenheit} Fahrenheit is {celcius} Celsius</h3>
                </>
-
-
           )
      }
 
-     rootElement.render(<App />)
+     rootElelment.render(<App />)
+
 </script>
-
-</html>
-
-
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Temperature Converter</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
-    <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <script type="text/babel">
-      const { useState } = React;
-
-      function TemperatureConverter() {
-        const [celsius, setCelsius] = useState("");
-        const [fahrenheit, setFahrenheit] = useState("");
-
-        const handleCelsiusChange = (e) => {
-          const value = e.target.value;
-          setCelsius(value);
-          setFahrenheit(value !== "" ? (parseFloat(value) * 9/5 + 32).toFixed(2) : "");
-        };
-
-        const handleFahrenheitChange = (e) => {
-          const value = e.target.value;
-          setFahrenheit(value);
-          setCelsius(value !== "" ? ((parseFloat(value) - 32) * 5/9).toFixed(2) : "");
-        };
-
-        return (
-          <div>
-            <label>
-              Celsius:
-              <input type="number" value={celsius} onChange={handleCelsiusChange} />
-            </label>
-            <br />
-            <label>
-              Fahrenheit:
-              <input type="number" value={fahrenheit} onChange={handleFahrenheitChange} />
-            </label>
-          </div>
-        );
-      }
-
-      ReactDOM.render(<TemperatureConverter />, document.getElementById("root"));
-    </script>
-  </body>
-</html>
