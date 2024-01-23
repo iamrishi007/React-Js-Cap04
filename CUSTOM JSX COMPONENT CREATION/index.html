@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <title>React Template</title>
+</head>
+
+<body>
+     <div id="root">
+          Hello From DOM
+     </div>
+</body>
+<script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+<script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+<script type="text/babel">
+
+     // Your task starts here
+
+     let root = document.getElementById('root')
+     let rooElement = ReactDOM.createRoot(root)
+
+
+     let App = () => {
+
+
+          function Header(props) {
+               return (
+
+                    <>
+                         <footer>
+                              <h1>Hello This Is{props.class} </h1>
+                         </footer>
+                    </>
+
+               )
+          }
+          function Footer(props) {
+               return (
+                    <>
+                         <header>
+                              <h1> I Am {props.name}</h1>
+                         </header>
+                    </>
+               )
+          }
+
+          function Content(props) {
+               return (
+                    <>
+
+                    </>
+               )
+          }
+
+          return (
+               <>
+                    <h1>Hello From React</h1>
+
+
+                    <Footer name="Rushikesh" />
+                    <Header class="Alexa 1" />
+                    <Content />
+               </>
+          )
+     }
+
+     rooElement.render(<App />)
+
+</script>
+
+
+</html>

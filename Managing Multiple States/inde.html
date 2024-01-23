@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <title>Boilerplate Code</title>
+     <style>
+          #root {
+               height: 400px;
+               width: 350px;
+               /* border: 1px solid red; */
+               margin: 20px auto;
+               padding: 20px;
+               text-align: center;
+               box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+          }
+
+          .btn-3 {
+               margin: 10px;
+
+          }
+
+          .btn-3 button {
+               margin: 10px;
+               padding: 10px;
+               width: 100%;
+               background-color: green;
+               font-size: 20px;
+               color: white;
+               border-radius: 10px;
+               border: none;
+          }
+
+          .btn-1 button {
+               margin: 10px;
+               padding: 10px;
+               width: 100%;
+               background-color: red;
+               font-size: 20px;
+               color: black;
+               border-radius: 10px;
+               border: none;
+          }
+
+          h1 {
+               color: red;
+          }
+
+          .end {
+               color: green;
+          }
+     </style>
+</head>
+
+<body>
+     <div id="root">
+          Hello From React
+     </div>
+</body>
+<script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+<script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+
+</html>
+<script type="text/babel">
+
+     let root = document.getElementById('root')
+     let rootElement = ReactDOM.createRoot(root)
+
+
+     function ReanderButtons({ run, setRun }) {
+          return (
+               <>
+                    <div className="btn-3" >
+                         <button onClick={() => {
+                              { setRun(run + 4) }
+                         }}>Increase runs by 4</button>
+
+                         <button onClick={() => {
+                              { setRun(run + 8) }
+                         }}>Increase runs by 8</button>
+
+                         <button onClick={() => {
+                              { setRun(run + 3) }
+                         }}>Increase runs by 3</button>
+
+                    </div>
+               </>
+
+          )
+     }
+
+
+     let CricketScoreboard = () => {
+
+          let runs = React.useState(0)
+          const [run, setRuns] = runs
+
+          let wickets = React.useState(0)
+          const [wicket, setWicket] = wickets
+
+          let Style = {
+               button: "red"
+          }
+
+          return (
+               <>
+                    <div>
+                         <h1>Total Team Score Is {run}</h1>
+                         <h1>Total Team wickets Is {wicket}</h1>
+                    </div>
+
+                    <div>
+                         {wicket != 10 ? (
+                              <ReanderButtons run={run} setRun={setRuns} />
+
+                         ) : (
+                              <h1 className="end">Match Is Over Total Score Is {run}</h1>
+                         )}
+                    </div>
+                    <div className="btn-1">
+                         <button style={Style} onClick={() => {
+                              { setWicket(wicket + 1) }
+                         }}>Update Wickets</button>
+                    </div>
+               </>
+          )
+     }
+
+
+     rootElement.render(<CricketScoreboard />)
+
+</script>
