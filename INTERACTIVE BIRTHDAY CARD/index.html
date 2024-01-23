@@ -2,45 +2,67 @@
 <html lang="en">
 
 <head>
-     <meta charset="UTF-8" />
-     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-     <title>React Template</title>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Birthday Card</title>
 </head>
 
 <body>
      <div id="root">
 
      </div>
+     <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+     <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </body>
-<script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
-<script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
-<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+</html>
 
 <script type="text/babel">
 
-     // Your task starts here
-
      let root = document.getElementById('root')
-     let rooElement = ReactDOM.createRoot(root)
+     let rootElelment = ReactDOM.createRoot(root)
+
+     let BirthdayCard = () => {
+
+          const myRecipi = React.useState("")
+          const [recipiName, setRecipiName] = myRecipi
+
+          const myMessage = React.useState("")
+          const [msg, setMsg] = myMessage
+
+          let RecipitName = (event) => {
+               setRecipiName(event.target.value);
 
 
-     let App = () => {
-
-          function BirthdayCard() {
+          }
+          let CustomMessage = (event) => {
+               setMsg(event.target.value);
 
           }
 
+          function ChangeStyle() {
+               return recipiName.length > 4 ? 'lightblue' : 'gold';
+          }
           return (
-               <>
-                    <h2>Hello from React</h2>
-                    <BirthdayCard />
-               </>)
+               <div style={{ backgroundColor: ChangeStyle(), padding: '20px', borderRadius: '10px', margin: '20px', textAlign: 'center' }}>
+                    <label> RecipitName : </label>
+                    <input type="text" value={recipiName} onChange={RecipitName} />
+                    <br />
+                    <label> Message : </label>
+                    <input type="text" value={msg} onChange={CustomMessage} />
+                    <h2>Happy Birthday, {recipiName}!</h2>
+                    <h3>Custom Message{msg}</h3>
+
+               </div>
+
+
+
+          )
      }
 
 
-     rooElement.render(<App />)
+
+     rootElelment.render(<BirthdayCard />)
 
 </script>
-
-
-</html>
