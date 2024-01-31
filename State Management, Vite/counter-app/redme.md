@@ -1,0 +1,4 @@
+- `setCount` is not immediate; it happens later due to React's batching of updates for optimized performance.
+- React's design schedules re-rendering for better performance, which is why `setCount` is asynchronous.
+- When dealing with state updates, especially in a sequence or depending on the previous state, be aware of React's asynchronous nature.
+- To ensure accurate and sequential updates, use the functional form of the state updater (`prevCount => prevCount + 1`) when making multiple updates based on the previous state value.
