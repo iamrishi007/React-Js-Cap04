@@ -64,4 +64,4 @@
      Root - It's the main place where your React app starts and gets displayed on         webpage.
 =======
      Root - It's the main place where your React app starts and gets displayed on         webpage.
->>>>>>> 6e4108dff090720600d5bc29a55829b5946bc827
+
